@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Unit Conversion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .conversion {
+            text-align: center;
+        }
+
+        .conversion label,
+        .conversion select,
+        .conversion input {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body bgcolor="orange">
+    <h1>Unit Conversion</h1>
+
+    <div class="conversion">
+        <label for="inputValue">Enter Value:</label>
+        <input type="number" id="inputValue">
+
+        <label for="fromUnit">From Unit:</label>
+        <select id="fromUnit">
+            <option value="cm">Centimeters</option>
+            <option value="inch">Inches</option>
+            <option value="m">Meters</option>
+            <option value="ft">Feet</option>
+            <option value="yd">Yards</option>
+        </select>
+
+        <label for="toUnit">To Unit:</label>
+        <select id="toUnit">
+            <option value="cm">Centimeters</option>
+            <option value="inch">Inches</option>
+            <option value="m">Meters</option>
+            <option value="ft">Feet</option>
+            <option value="yd">Yards</option>
+        </select>
+
+        <button id="convertButton">Convert</button>
+    </div>
+
+    <div class="result">
+        <p id="output"></p>
+    </div>
+    <script>
+        const convertButton = document.getElementById('convertButton');
+        const inputValue = document.getElementById('inputValue');
+        const fromUnit = document.getElementById('fromUnit');
+        const toUnit = document.getElementById('toUnit');
+        const output = document.getElementById('output');
+
+        convertButton.addEventListener('click', () => {
+            const value = parseFloat(inputValue.value);
+            const from = fromUnit.value;
+            const to = toUnit.value;
+
+            if (from === to) {
+                output.textContent = "Select different units to convert.";
+                return;
+            }
+
+            let result;
+
+            if (from === 'cm' && to === 'inch') {
+                result = value / 2.54;
+            } else if (from === 'inch' && to === 'cm') {
+                result = value * 2.54;
+            } else if (from === 'm' && to === 'ft') {
+                result = value * 3.28084;
+            } else if (from === 'ft' && to === 'm') {
+                result = value / 3.28084;
+            } else if (from === 'm' && to === 'yd') {
+                result = value * 1.09361;
+            } else if (from === 'yd' && to === 'm') {
+                result = value / 1.09361;
+            }
+
+            output.textContent = `${value} ${from} is equal to ${result.toFixed(2)} ${to}.`;
+        });
+    </script>
+</body>
+</html>
