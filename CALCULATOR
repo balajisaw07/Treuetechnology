@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .calculator {
+            max-width: 300px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #ee840c;
+            border-radius: 10px; /* Adding rounded corners */
+        }
+
+        .display {
+            font-size: 24px;
+            text-align: right;
+            padding: 20px;
+            border: 1px solid #db2b2b;
+            margin-bottom: 20px;
+            background-color: #23ee1c;
+            border-radius: 10px; /* Adding rounded corners */
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: hsl(58, 16%, 70%);
+            border: 1px solid #e61f1f;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* Making the corners oval */
+        }
+
+        button:hover {
+            background-color: #f01c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="operate('+')">+</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="operate('-')">-</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="operate('*')">*</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="operate('/')">/</button>
+    </div>
+
+    <script>
+        let displayValue = '0';
+        let pendingOperation = null;
+        let firstOperand = null;
+
+        function updateDisplay() {
+            document.getElementById('display').innerText = displayValue;
+        }
+
+        function appendToDisplay(value) {
+            if (displayValue === '0' || displayValue === 'Error') {
+                displayValue = value;
+            } else {
+                displayValue += value;
+            }
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            displayValue = '0';
+            pendingOperation = null;
+            firstOperand = null;
+            updateDisplay();
+        }
+
+        function operate(operator) {
+            if (firstOperand === null) {
+                firstOperand = parseFloat(displayValue);
+                displayValue = '';
+                pendingOperation = operator;
+            } else if (displayValue !== '') {
+                const secondOperand = parseFloat(displayValue);
+                switch (pendingOperation) {
+                    case '+':
+                        firstOperand += secondOperand;
+                        break;
+                    case '-':
+                        firstOperand -= secondOperand;
+                        break;
+                    case '*':
+                        firstOperand *= secondOperand;
+                        break;
+                    case '/':
+                        if (secondOperand === 0) {
+                            displayValue = 'Error: Division by zero';
+                            updateDisplay();
+                            return; // Exit early to avoid further calculations
+                        } else {
+                            firstOperand /= secondOperand;
+                        }
+                        break;
+                }
+                displayValue = firstOperand.toString();
+                pendingOperation = operator;
+            } else {
+                pendingOperation = operator;
+            }
+            updateDisplay();
+        }
+
+        function calculateResult() {
+            if (pendingOperation && displayValue !== '') {
+                const secondOperand = parseFloat(displayValue);
+                switch (pendingOperation) {
+                    case '+':
+                        displayValue = (firstOperand + secondOperand).toString();
+                        break;
+                    case '-':
+                        displayValue = (firstOperand - secondOperand).toString();
+                        break;
+                    case '*':
+                        displayValue = (firstOperand * secondOperand).toString();
+                        break;
+                    case '/':
+                        if (secondOperand === 0) {
+                            displayValue = 'Error: Division by zero';
+                        } else {
+                            displayValue = (firstOperand / secondOperand).toString();
+                        }
+                        break;
+                }
+                pendingOperation = null;
+                firstOperand = null;
+                updateDisplay();
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
