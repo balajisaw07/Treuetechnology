@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #8e2d2d;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FF5733;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Landing Page</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section>
+        <h2>About Us</h2>
+        <p>We Build IT That Build Your Business
+We Develop Personalized Software At Our Company, We Turn The Digital Dreams Of Our Clients Into A Reality. We Work Closely With Our Users Throughout Development To Ensure That We Are Still Aligned With The End-Goal. We Are Committed To Producing Exceptional Software For Each Of Our Clients.
+
+We At TREUE TECHNOLOGIES Believe In Making Our Youth Especially The Students Self-Aware And Exploring The Untouched World Of Technology And Tremendous Growth-Making Fields. We Believes In Bridging The Gap Between Students And Their Knowledge In The Industrial Field & Bringing Them A Step Closer To Their Dream. We Are MSME Registered Start-Up, Always Open To Connect New People With Us Over This Journey Of Endless Learning And Great Joy!</p>
+        <a href="#" class="cta-button">Learn More</a>
+    </section>
+
+    <section style="background-color: #5eaa4d;">
+        <h2>Our Services</h2>
+        <p>Animation Design</p>
+        <p>Database Management</p>
+        <p>Website Development</p>
+        <p>Data science</p>
+        <p>Machine learning</p>
+        <a href="#" class="cta-button">Explore Services</a>
+    </section>
+
+    <footer>
+        <p>Contact us at@Treuetechnologies.In</p>
+    </footer>
+</body>
