@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social media integration</title>
+<style>
+
+.h1{
+    margin-top: 0%;
+    text-align: center;
+    text-decoration: underline;
+    background-color: burlywood;
+    margin-right: 550px;
+    margin-left: 550px;
+}
+
+#p{
+    text-align: center;
+    line-height: 1.5;
+    font-size: 555 rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font: optional;
+}
+
+.name{
+    text-align: center;
+    text-size-adjust: 220px;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 25px;
+    margin-right: 25px;
+    padding-left: 48px;
+    padding-right: 50px;
+}
+
+.icons{
+    text-align: center;
+  background-color:#f2f6ff;
+  padding:24px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+.Social{
+  width:50px;
+  height:50px;
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left:38px;
+  padding-right:38px;
+}
+
+#input-field{
+text-align: center;
+padding-top: 15px;
+}
+
+
+.button-submit{
+
+  background-color:#0056ff;
+  font-size:18px;
+  color:white;
+  border:none;
+  padding-top:12px;
+  padding-bottom:12px;
+  padding-left:24px;
+  padding-right:24px;
+}
+
+
+#p1{
+    font-size: 25px;
+}
+</style>
+
+
+
+<body>
+    <h1 class="h1">Social media</h1>
+    <p id="p"> Hello There!
+        <br>Here is my Social media Icons
+    </p>
+    <form>
+
+    <div class="icons">
+    <a href="https://www.linkedin.com/in/balaji-s-922165258" target="" ><img class="Social" src="https://webgraphiz.com/_next/image?url=https%3A%2F%2Fcdn.geekboots.com%2Fweb%2Fthumbnail-thumb-1655144763540.webp&w=640&q=75" alt="linkedin"></a><p id="p1"><h1>linkedin</h1></p>
+
+    <a href="https://www.instagram.com/balaji__saw_1004/" target=""><img class="Social" src="https://webgraphiz.com/_next/image?url=https%3A%2F%2Fcdn.geekboots.com%2Fweb%2Fthumbnail-thumb-1655145411651.webp&w=640&q=75" alt="instagram"></a><p id="p1"><h1>instagram</h1></p>
+    <a href="https://github.com/balajisaw07/Treue-Technologies" target=""><img class="Social" src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="Xcorp"></a><p id="p1"><h1>github</h1></p>
+   
+    </div>
+    <div id=input-field>
+        <input class="button-submit" type="submit" value="Register">
+    </div>
+    
+    </form>
+</head>
+</body>
+</html>
